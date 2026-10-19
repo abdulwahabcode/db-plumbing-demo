@@ -1,0 +1,448 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>DB Plumbing LLC — Plumbing, Sewer & Drain Repair | Northeast Missouri</title>
+<meta name="description" content="DB Plumbing LLC — plumbing repair, sewer line repair, root removal, drain cleaning, water heater install & repair, and 24/7 emergency plumbing across rural northeast Missouri. Call or text (573) 721-2705.">
+<style>
+  :root{
+    --teal: #123B3C;        /* deep teal — header/footer bands */
+    --teal-deep: #0F2E33;   /* deeper teal for footer */
+    --cream: #F3EFE6;       /* warm cream — content sections */
+    --cream-2: #EAE3D2;     /* slightly deeper cream for cards */
+    --copper: #B07B4F;      /* muted copper/brass accent — 10% */
+    --copper-dark: #8F6138;
+    --offwhite: #EFE9DC;    /* text on dark, never pure white */
+    --ink: #22312F;         /* body text on cream */
+    --muted: #5C6159;       /* secondary text on cream */
+  }
+  *{ margin:0; padding:0; box-sizing:border-box; }
+  html{ scroll-behavior:smooth; }
+  body{
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    background: var(--cream);
+    color: var(--ink);
+    line-height: 1.6;
+    -webkit-text-size-adjust: 100%;
+  }
+  .serif{ font-family: Georgia, "Times New Roman", Times, serif; }
+
+  /* ---------- top band ---------- */
+  .topband{
+    background: var(--teal);
+    color: var(--offwhite);
+    border-bottom: 3px solid var(--copper);
+  }
+  .topband-inner{
+    max-width: 1080px; margin: 0 auto;
+    padding: 14px 20px;
+    display: flex; align-items: center; gap: 14px;
+  }
+  .mark{
+    width: 52px; height: 60px; flex: 0 0 52px;
+    position: relative;
+  }
+  .brand{ line-height: 1.25; }
+  .brand .name{ font-size: 20px; font-weight: 800; letter-spacing: .5px; color: var(--offwhite); }
+  .brand .tag{ font-size: 12.5px; color: #CBBFA6; letter-spacing: 1.5px; text-transform: uppercase; }
+  .band-call{
+    margin-left: auto; text-align: right; line-height: 1.3;
+  }
+  .band-call .lbl{ font-size: 11px; letter-spacing: 1px; text-transform: uppercase; color: #CBBFA6; }
+  .band-call a{
+    color: var(--offwhite); font-weight: 800; font-size: 19px; text-decoration: none;
+    display: inline-block; padding: 6px 2px; min-height: 44px; line-height: 44px;
+  }
+  .band-call a:hover{ color: #FFFFFF; }
+
+  /* ---------- hero ---------- */
+  .hero{
+    background: var(--cream);
+    border-bottom: 1px solid #DCD3BE;
+  }
+  .hero-inner{ max-width: 1080px; margin: 0 auto; padding: 56px 20px 52px; }
+  .kicker{
+    display: inline-flex; align-items: center; gap: 8px;
+    font-size: 12.5px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase;
+    color: var(--copper-dark); margin-bottom: 16px;
+  }
+  .kicker::before, .kicker::after{ content:""; width: 34px; height: 2px; background: var(--copper); }
+  .hero h1{
+    font-size: clamp(34px, 6vw, 58px);
+    line-height: 1.12; color: var(--teal); font-weight: 800; max-width: 16ch;
+    margin-bottom: 16px;
+  }
+  .hero h1 .u{ text-decoration: underline; text-decoration-color: var(--copper); text-decoration-thickness: 5px; text-underline-offset: 7px; }
+  .hero p.lede{ font-size: 18px; color: var(--muted); max-width: 56ch; margin-bottom: 28px; }
+
+  .cta-row{ display: flex; flex-wrap: wrap; gap: 14px; }
+  .btn{
+    display: inline-flex; align-items: center; justify-content: center; gap: 10px;
+    min-height: 52px; padding: 14px 28px; border-radius: 6px;
+    font-size: 17px; font-weight: 800; text-decoration: none;
+    transition: transform .12s ease, box-shadow .12s ease;
+  }
+  .btn:active{ transform: scale(.98); }
+  .btn-copper{
+    background: var(--copper); color: #FFFFFF;
+    box-shadow: 0 3px 0 var(--copper-dark);
+  }
+  .btn-copper:hover{ background: var(--copper-dark); }
+  .btn-outline{
+    background: transparent; color: var(--teal);
+    border: 2px solid var(--teal);
+  }
+  .btn-outline:hover{ background: var(--teal); color: var(--offwhite); }
+  .hero-note{ margin-top: 18px; font-size: 14.5px; color: var(--muted); }
+  .hero-note strong{ color: var(--teal); }
+
+  /* copper rule divider */
+  .rule{ height: 2px; background: var(--copper); width: 64px; margin: 0 auto; }
+
+  /* ---------- trust band ---------- */
+  .trust{ background: var(--teal); color: var(--offwhite); }
+  .trust-inner{
+    max-width: 1080px; margin: 0 auto; padding: 34px 20px;
+    display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px;
+    text-align: center;
+  }
+  .badge-item{ display: flex; flex-direction: column; align-items: center; gap: 10px; }
+  .shield{
+    width: 62px; height: 72px; display: block;
+  }
+  .badge-item .t{ font-weight: 800; font-size: 16px; color: var(--offwhite); }
+  .badge-item .s{ font-size: 13.5px; color: #CBBFA6; max-width: 26ch; }
+
+  /* ---------- services ---------- */
+  .services{ background: var(--cream); }
+  .wrap{ max-width: 1080px; margin: 0 auto; padding: 60px 20px; }
+  .section-head{ text-align: center; margin-bottom: 36px; }
+  .section-head .eyebrow{
+    font-size: 12.5px; font-weight: 700; letter-spacing: 2.5px; text-transform: uppercase;
+    color: var(--copper-dark); margin-bottom: 10px;
+  }
+  .section-head h2{ font-size: clamp(26px, 4vw, 36px); color: var(--teal); font-weight: 800; margin-bottom: 8px; }
+  .section-head p{ color: var(--muted); max-width: 60ch; margin: 0 auto; }
+  .grid{ display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; }
+  .card{
+    background: var(--cream-2);
+    border: 1px solid #D8CEB4;
+    border-top: 4px solid var(--copper);
+    border-radius: 8px;
+    padding: 26px 22px;
+  }
+  .card .ico{
+    width: 46px; height: 46px; border-radius: 50%;
+    background: var(--teal); display: flex; align-items: center; justify-content: center;
+    margin-bottom: 16px;
+  }
+  .card h3{ font-size: 18px; color: var(--teal); font-weight: 800; margin-bottom: 8px; }
+  .card p{ font-size: 15px; color: var(--muted); }
+
+  /* ---------- why ---------- */
+  .why{ background: var(--teal); color: var(--offwhite); border-top: 3px solid var(--copper); border-bottom: 3px solid var(--copper); }
+  .why .section-head h2{ color: var(--offwhite); }
+  .why .section-head p{ color: #CBBFA6; }
+  .why-list{ display: grid; grid-template-columns: repeat(2, 1fr); gap: 30px 40px; max-width: 900px; margin: 0 auto; }
+  .why-item{ border-left: 3px solid var(--copper); padding-left: 20px; }
+  .why-item h3{ font-size: 18px; font-weight: 800; color: var(--offwhite); margin-bottom: 6px; }
+  .why-item p{ font-size: 15px; color: #CBBFA6; }
+
+  /* ---------- service area ---------- */
+  .area{ background: var(--cream); }
+  .pills{ display: flex; flex-wrap: wrap; gap: 12px; justify-content: center; max-width: 760px; margin: 0 auto; }
+  .pill{
+    background: var(--teal); color: var(--offwhite);
+    border: 1px solid var(--teal);
+    border-radius: 999px; padding: 10px 20px;
+    font-size: 15.5px; font-weight: 700; white-space: nowrap;
+  }
+  .pill.home{ background: var(--copper); border-color: var(--copper-dark); color: #FFFFFF; }
+  .area-foot{ text-align: center; margin-top: 24px; color: var(--muted); font-size: 15px; }
+
+  /* ---------- contact ---------- */
+  .contact{ background: var(--teal-deep); color: var(--offwhite); border-top: 3px solid var(--copper); }
+  .contact-inner{ max-width: 720px; margin: 0 auto; padding: 64px 20px 72px; text-align: center; }
+  .contact h2{ font-size: clamp(28px, 4.5vw, 40px); font-weight: 800; color: var(--offwhite); margin-bottom: 10px; }
+  .contact .sub{ color: #CBBFA6; font-size: 17px; margin-bottom: 30px; }
+  .big-num{
+    display: inline-block; font-size: clamp(24px, 5vw, 34px); font-weight: 800;
+    color: var(--offwhite); text-decoration: none; margin-bottom: 26px;
+    border-bottom: 3px solid var(--copper); padding-bottom: 6px;
+  }
+  .big-num:hover{ color: #FFFFFF; }
+  .contact .cta-row{ justify-content: center; }
+  .hours{ margin-top: 26px; font-size: 14.5px; color: #CBBFA6; }
+  .hours strong{ color: var(--offwhite); }
+
+  /* ---------- footer ---------- */
+  footer{ background: #0C2326; color: #A79B7E; }
+  .foot-inner{
+    max-width: 1080px; margin: 0 auto; padding: 26px 20px;
+    display: flex; flex-wrap: wrap; gap: 10px; align-items: center; justify-content: space-between;
+    font-size: 13.5px;
+  }
+  footer a{ color: #CBBFA6; text-decoration: none; display: inline-block; padding: 15px 4px; }
+  footer a:hover{ color: var(--offwhite); }
+
+  /* ---------- sticky mobile call bar ---------- */
+  .sticky-bar{
+    display: none;
+    position: fixed; left: 0; right: 0; bottom: 0; z-index: 50;
+    background: var(--teal); border-top: 3px solid var(--copper);
+    padding: 10px 12px calc(10px + env(safe-area-inset-bottom));
+  }
+  .sticky-bar .row{ display: grid; grid-template-columns: 1fr 1fr; gap: 10px; max-width: 480px; margin: 0 auto; }
+  .sticky-bar a{
+    display: flex; align-items: center; justify-content: center; gap: 8px;
+    min-height: 48px; border-radius: 6px; font-weight: 800; font-size: 16px; text-decoration: none;
+  }
+  .sticky-bar .call{ background: var(--copper); color: #FFFFFF; }
+  .sticky-bar .text{ background: transparent; color: var(--offwhite); border: 2px solid var(--copper); }
+
+  /* ---------- responsive ---------- */
+  @media (max-width: 760px){
+    .trust-inner{ grid-template-columns: 1fr; gap: 28px; }
+    .grid{ grid-template-columns: 1fr; }
+    .why-list{ grid-template-columns: 1fr; gap: 24px; }
+    .sticky-bar{ display: block; }
+    body{ padding-bottom: 84px; } /* room for sticky bar */
+    .band-call .lbl{ display: none; }
+  }
+  @media (max-width: 480px){
+    .hero-inner{ padding: 40px 18px 36px; }
+    .cta-row .btn{ flex: 1 1 100%; }
+    .topband-inner{ padding: 12px 14px; gap: 10px; }
+    .brand .name{ font-size: 18px; }
+    .band-call a{ font-size: 17px; white-space: nowrap; }
+  }
+  @media (prefers-reduced-motion: reduce){
+    html{ scroll-behavior: auto; }
+    *{ transition: none !important; }
+  }
+</style>
+</head>
+<body>
+
+  <!-- ===== top band ===== -->
+  <div class="topband">
+    <div class="topband-inner">
+      <svg class="mark" viewBox="0 0 52 60" aria-hidden="true">
+        <path d="M26 1 L50 10 V30 C50 46 38 55 26 59 C14 55 2 46 2 30 V10 Z" fill="#B07B4F"/>
+        <path d="M26 6 L45 13.5 V30 C45 42.5 35.5 50.5 26 54 C16.5 50.5 7 42.5 7 30 V13.5 Z" fill="#123B3C"/>
+        <text x="26" y="38" text-anchor="middle" font-family="Georgia, serif" font-weight="bold" font-size="24" fill="#EFE9DC">DB</text>
+      </svg>
+      <div class="brand">
+        <div class="name serif">DB Plumbing LLC</div>
+        <div class="tag">Paris, Missouri</div>
+      </div>
+      <div class="band-call">
+        <div class="lbl">Call or Text</div>
+        <a href="tel:+15737212705">(573) 721-2705</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===== hero ===== -->
+  <section class="hero">
+    <div class="hero-inner">
+      <div class="kicker">Northeast Missouri Plumbers</div>
+      <h1 class="serif">When pipes fail, <span class="u">we show up</span>.</h1>
+      <p class="lede">Honest plumbing done right the first time — for farmhouses, family homes, and businesses across rural northeast Missouri. One call and the problem is on our list, not yours.</p>
+      <div class="cta-row">
+        <a class="btn btn-copper" href="tel:+15737212705">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1 1 .4 2 .7 2.9a2 2 0 0 1-.5 2.1L8 10a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.5c.9.3 1.9.6 2.9.7a2 2 0 0 1 1.7 2z"/></svg>
+          Call (573) 721-2705
+        </a>
+        <a class="btn btn-outline" href="sms:+15737212705">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+          Text Us Instead
+        </a>
+      </div>
+      <p class="hero-note"><strong>24/7 emergency service.</strong> Burst pipe at 2 am? Tree roots in the sewer? We answer.</p>
+    </div>
+  </section>
+
+  <!-- ===== trust band ===== -->
+  <section class="trust" aria-label="Why homeowners trust us">
+    <div class="trust-inner">
+      <div class="badge-item">
+        <svg class="shield" viewBox="0 0 62 72" aria-hidden="true">
+          <path d="M31 2 L58 12 V34 C58 53 44 63 31 70 C18 63 4 53 4 34 V12 Z" fill="none" stroke="#B07B4F" stroke-width="3"/>
+          <path d="M21 35 l7 7 13-14" fill="none" stroke="#B07B4F" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+        <div class="t">Licensed &amp; Insured</div>
+        <div class="s">Full coverage on every job — your home is protected.</div>
+      </div>
+      <div class="badge-item">
+        <svg class="shield" viewBox="0 0 62 72" aria-hidden="true">
+          <path d="M31 2 L58 12 V34 C58 53 44 63 31 70 C18 63 4 53 4 34 V12 Z" fill="none" stroke="#B07B4F" stroke-width="3"/>
+          <path d="M31 20 v14 M22 34 c0-5 4-8 9-8 s9 3 9 8 c0 4-3 6-5 7 v5 h-8 v-5 c-2-1-5-3-5-7z" fill="none" stroke="#B07B4F" stroke-width="3" stroke-linecap="round"/>
+        </svg>
+        <div class="t">Locally Owned</div>
+        <div class="s">Based in Paris, MO. Our neighbors are our customers.</div>
+      </div>
+      <div class="badge-item">
+        <svg class="shield" viewBox="0 0 62 72" aria-hidden="true">
+          <path d="M31 2 L58 12 V34 C58 53 44 63 31 70 C18 63 4 53 4 34 V12 Z" fill="none" stroke="#B07B4F" stroke-width="3"/>
+          <path d="M20 28 h22 M20 36 h22 M20 44 h13" stroke="#B07B4F" stroke-width="3" stroke-linecap="round"/>
+        </svg>
+        <div class="t">Upfront Pricing</div>
+        <div class="s">Straightforward price before we start — no surprises.</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== services ===== -->
+  <section class="services" id="services">
+    <div class="wrap">
+      <div class="section-head">
+        <div class="eyebrow">What We Do</div>
+        <h2 class="serif">Full-Service Plumbing &amp; Drain Care</h2>
+        <p>From a dripping faucet to a collapsed sewer line — one local crew, the right tools, and work that holds up.</p>
+      </div>
+      <div class="grid">
+        <div class="card">
+          <div class="ico">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#EFE9DC" stroke-width="2" stroke-linecap="round"><path d="M14.7 6.3a4.5 4.5 0 0 0-6 6L3 18l3 3 5.7-5.7a4.5 4.5 0 0 0 6-6L14 13l-3-3 3.7-3.7z"/></svg>
+          </div>
+          <h3>Plumbing Repair</h3>
+          <p>Leaks, drips, broken fixtures, and worn-out piping — fixed fast and fixed right.</p>
+        </div>
+        <div class="card">
+          <div class="ico">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#EFE9DC" stroke-width="2" stroke-linecap="round"><path d="M3 8h18M3 12h18M3 16h18M7 4v16M17 4v16"/></svg>
+          </div>
+          <h3>Sewer Line Repair</h3>
+          <p>Backups, slow drains, and failing lines diagnosed and repaired with minimal digging.</p>
+        </div>
+        <div class="card">
+          <div class="ico">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#EFE9DC" stroke-width="2" stroke-linecap="round"><path d="M12 22V10M12 10C12 6 9 4 5 4c0 4 3 6 7 6zm0 0c0-4 3-6 7-6 0 4-3 6-7 6z"/></svg>
+          </div>
+          <h3>Root Removal</h3>
+          <p>Tree roots choking your sewer? We cut them out and clear the line all the way.</p>
+        </div>
+        <div class="card">
+          <div class="ico">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#EFE9DC" stroke-width="2" stroke-linecap="round"><path d="M12 3c3 4 6 7.5 6 11a6 6 0 0 1-12 0c0-3.5 3-7 6-11z"/></svg>
+          </div>
+          <h3>Drain Cleaning</h3>
+          <p>Stubborn clogs in sinks, tubs, and main drains — cleared clean, the first visit.</p>
+        </div>
+        <div class="card">
+          <div class="ico">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#EFE9DC" stroke-width="2" stroke-linecap="round"><rect x="6" y="3" width="12" height="18" rx="2"/><path d="M12 7v6M9 21h6"/></svg>
+          </div>
+          <h3>Water Heater Install &amp; Repair</h3>
+          <p>No hot water? We repair or replace your water heater and get showers back on.</p>
+        </div>
+        <div class="card">
+          <div class="ico">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#EFE9DC" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 3"/></svg>
+          </div>
+          <h3>Emergency Plumbing</h3>
+          <p>Burst pipes, flooding, sewage backups — day or night, we pick up the phone.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== why choose us ===== -->
+  <section class="why">
+    <div class="wrap">
+      <div class="section-head">
+        <div class="eyebrow">Why DB Plumbing</div>
+        <h2 class="serif">The Kind of Plumber You Tell Your Neighbors About</h2>
+        <p>Big-city plumbing prices with big-city runaround? Not here.</p>
+      </div>
+      <div class="why-list">
+        <div class="why-item">
+          <h3>We answer the phone</h3>
+          <p>Call or text (573) 721-2705 and you talk to the person who'll actually fix it — not a call center.</p>
+        </div>
+        <div class="why-item">
+          <h3>Rural homes are our specialty</h3>
+          <p>Older houses, well systems, long sewer runs — we know the plumbing you actually have out here.</p>
+        </div>
+        <div class="why-item">
+          <h3>Honest, upfront pricing</h3>
+          <p>You approve the price before any wrench turns. The quote is the bill.</p>
+        </div>
+        <div class="why-item">
+          <h3>We clean up after ourselves</h3>
+          <p>Shoe covers, drop cloths, and a work area left cleaner than we found it. Every time.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== service area ===== -->
+  <section class="area" id="area">
+    <div class="wrap">
+      <div class="section-head">
+        <div class="eyebrow">Where We Work</div>
+        <h2 class="serif">Proudly Serving Rural Northeast Missouri</h2>
+        <p>Based in Paris — on the road across Monroe County and beyond, every day.</p>
+      </div>
+      <div class="pills">
+        <span class="pill home">Paris, MO</span>
+        <span class="pill">Madison</span>
+        <span class="pill">Shelbina</span>
+        <span class="pill">Monroe City</span>
+        <span class="pill">Mexico</span>
+        <span class="pill">Perry</span>
+        <span class="pill">Centralia</span>
+        <span class="pill">Laddonia</span>
+        <span class="pill">Rush Hill</span>
+        <span class="pill">Benton City</span>
+      </div>
+      <p class="area-foot">Outside these towns? Call anyway — if we can get the truck there, we'll be there.</p>
+    </div>
+  </section>
+
+  <!-- ===== contact ===== -->
+  <section class="contact" id="contact">
+    <div class="contact-inner">
+      <h2 class="serif">Got a Plumbing Problem?</h2>
+      <p class="sub">Call or text — the fastest way to get it fixed is one tap away.</p>
+      <a class="big-num" href="tel:+15737212705">(573) 721-2705</a>
+      <div class="cta-row">
+        <a class="btn btn-copper" href="tel:+15737212705">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1 1 .4 2 .7 2.9a2 2 0 0 1-.5 2.1L8 10a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.5c.9.3 1.9.6 2.9.7a2 2 0 0 1 1.7 2z"/></svg>
+          Call Now
+        </a>
+        <a class="btn btn-outline" style="color:var(--offwhite); border-color:var(--copper);" href="sms:+15737212705">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+          Text Us
+        </a>
+      </div>
+      <p class="hours"><strong>Emergency service: 24/7.</strong><br>Regular hours: Mon&ndash;Fri, 8 am &ndash; 5 pm. Weekends by appointment.</p>
+    </div>
+  </section>
+
+  <!-- ===== footer ===== -->
+  <footer>
+    <div class="foot-inner">
+      <span>&copy; 2026 DB Plumbing LLC &middot; Paris, Missouri</span>
+      <span><a href="tel:+15737212705">(573) 721-2705</a> &middot; <a href="#services">Services</a> &middot; <a href="#area">Service Area</a> &middot; <a href="#contact">Contact</a></span>
+    </div>
+  </footer>
+
+  <!-- ===== sticky mobile call bar ===== -->
+  <div class="sticky-bar" role="navigation" aria-label="Quick contact">
+    <div class="row">
+      <a class="call" href="tel:+15737212705">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1 1 .4 2 .7 2.9a2 2 0 0 1-.5 2.1L8 10a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.5c.9.3 1.9.6 2.9.7a2 2 0 0 1 1.7 2z"/></svg>
+        Call Now
+      </a>
+      <a class="text" href="sms:+15737212705">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+        Text Us
+      </a>
+    </div>
+  </div>
+
+</body>
+</html>
